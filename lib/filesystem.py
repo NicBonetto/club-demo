@@ -21,3 +21,21 @@ class FileSystem:
     def __init__(self):
         self.root = Node('root')
 
+    def _create_path(self, path):
+        parts = path.split('/')
+        node = self.root
+        for part in parts:
+            if part not in node:
+                node[part] = {}
+            node = node[part]
+        return node
+
+    def _find(self, path):
+        parts = path.split('/')
+        node = self.root
+        for part in parts:
+            if part not in node:
+                node[part] = {}
+            node = node[part]
+        return node
+
